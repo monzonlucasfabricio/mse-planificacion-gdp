@@ -1,0 +1,25 @@
+{
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.rootFile.useSubFile": false,
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "charter: pdflatex",
+      "tools": [
+        "charter-pdflatex"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "charter-pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "charter.tex"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "charter: pdflatex",
+  "latex-workshop.view.pdf.viewer": "tab"
+}

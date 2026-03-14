@@ -5,22 +5,22 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+\titulo{Tenis Trainer} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
-%\posgrado{Carrera de Especialización en Sistemas Embebidos} 
+\posgrado{Carrera de Maestría en Sistemas Embebidos}
 %\posgrado{Carrera de Especialización en Internet de las Cosas} 
-\posgrado{Carrera de Especialización en Inteligencia Artificial}
+%\posgrado{Carrera de Especialización en Inteligencia Artificial}
 %\posgrado{Maestría en Sistemas Embebidos} 
 %\posgrado{Maestría en Internet de las cosas}
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
 % IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
-\autor{Título y Nombre del autor}
+\autor{Esp. Ing. Lucas Fabricio Monzón Languasco}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Título y Nombre del director}
-\pertenenciaDirector{pertenencia} 
+\director{Dr. Ing. Gustavo Zavala}
+\pertenenciaDirector{UMA} 
 \codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
 \pertenenciaCoDirector{FIUBA}
 
@@ -28,9 +28,9 @@
 \cliente{Nombre del cliente}
 \empresaCliente{Empresa del cliente}
  
-\fechaINICIO{30 de abril de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de junio de 2023} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{15 de mayo de 2024}	%Fecha de defensa pública del trabajo final
+\fechaINICIO{3 de marzo de 2026}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{21 de abril de 2026} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{14 de septiembre de 2026}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -51,7 +51,7 @@
 \label{sec:registro}
 
 
-\begin{table}[ht]
+\begin{table}[ht] 
 \label{tab:registro}
 \centering
 \begin{tabularx}{\linewidth}{@{}|c|X|c|@{}}
@@ -59,7 +59,7 @@
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 5 inclusive                & {día} de {mes} de 202X \\ \hline
+1      & Se completa hasta el punto 5 inclusive                 & {14} de {marzo} de 2026 \\ \hline
 %2      & Se completa hasta el punto 9 inclusive
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
@@ -85,7 +85,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de una caldera industrial}. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo e implementación de un prototipo funcional de una máquina lanzapelotas de tenis portátil, orientada al entrenamiento y con arquitectura escalable para incorporar visión por cámara e inteligencia artificial on-edge en etapas futuras. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de {USD 12.000}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -106,52 +106,29 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-El objetivo es que el lector, en una o dos páginas, exponga de qué se trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
+El proyecto \textit{Tenis Trainer} consiste en el rediseño y desarrollo de un prototipo funcional de máquina lanzapelotas para entrenamiento deportivo, concebida como un sistema embebido portátil y autónomo. La solución busca asistir al jugador en ejercicios de peloteo mediante secuencias programadas de lanzamiento, reduciendo la dependencia de otro jugador o entrenador.
 
-Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cuál es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
+El proyecto se desarrolla en el marco de la Maestría en Sistemas Embebidos y parte de una primera versión previamente construida, que permitió validar el concepto general. Sin embargo, esa versión presenta limitaciones de diseño mecánico y electrónico: volumen y peso elevados, uso de batería de gel, componentes mejorables, baja optimización del espacio interno y sensado insuficiente para referenciar con precisión los movimientos del sistema.
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+Desde el punto de vista técnico, la propuesta apunta a consolidar una arquitectura de desarrollo propio en firmware, electrónica y mecánica, integrando microcontrolador, actuadores, sensores y una aplicación móvil para configuración y control. Entre las mejoras previstas se incluyen la migración a baterías de litio intercambiables, la reducción del tamaño de las ruedas, la reorganización del layout interno y la incorporación de sensores y finales de carrera para mejorar confiabilidad y repetibilidad.
 
-\begin{itemize}
-	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
-	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
-	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está la solución que se propone?
-	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
-	\item ¿Por dónde pasa la innovación?
-\end{itemize}
+Frente a máquinas comerciales de entrenamiento, muchas veces costosas y poco flexibles para iteraciones locales, \textit{Tenis Trainer} busca ofrecer una plataforma portable, reproducible y escalable, con posibilidad de integración local de partes mecánicas y electrónicas. El problema que atiende es la necesidad de contar con un sistema de entrenamiento autónomo que permita repetir ejercicios de forma controlada y consistente. Los destinatarios de la solución son jugadores, entrenadores e instituciones deportivas.
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
+En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa una arquitectura compuesta por un microcontrolador ESP32, dos motores de corriente continua para el lanzamiento, subsistemas de posicionamiento en azimut y elevación mediante motores paso a paso, un mecanismo de alimentación de pelotas, sensores de estado y posición, y una aplicación móvil con conectividad Bluetooth. La lógica de control coordina estos bloques para ejecutar secuencias de entrenamiento programables y seguras.
 
-Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+La innovación del proyecto reside en la integración de una plataforma embebida que articula mecánica, electrónica, control e interacción con el usuario, y que además queda preparada para futuras ampliaciones. Actualmente la solución cuenta con un prototipo funcional básico, suficiente para validar el concepto general pero todavía con limitaciones de desempeño, portabilidad e integración. El presente trabajo se enfoca en evolucionar esa base hacia un prototipo más robusto, dejando prevista una etapa futura con visión por cámara e inteligencia artificial en el borde (\textit{edge AI}) para decisiones avanzadas de entrenamiento.
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.65\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=1\textwidth]{./Figuras/diagrama_en_bloques_general.png}
 \caption{Diagrama en bloques del sistema.}
 \label{fig:diagBloques}
 \end{figure}
 
 \vspace{25px}
 
-El tamaño del texto en TODAS las figuras debe ser adecuado \textbf{para que NO pase lo que ocurre en la figura \ref{fig:diagBloques}}, donde el lector debe esforzarse para poder leer el texto. 
-
-Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama. Se recomienda evitar colores primarios (como rojo, verde o cyan) y usar la gama de colores pastel.
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
-
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces \textbf{solo dejarla en el rol más importante}. 
-
-Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, \textbf{no debe ser colocado también como miembro del equipo}.
-
 
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
@@ -160,90 +137,73 @@ Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+Auspiciante   & -                 & -            	& -      	\\ \hline
+Cliente       & Corrientes Tenis Club & Corrientes Tenis Club	& Institución deportiva 	\\ \hline
+Impulsor      & -                 & -            	& -      	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
+Colaboradores & Jugadores de tenis participantes de las pruebas & - & Evaluadores de campo \\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Equipo        & -                 & -            	& -      	\\ \hline
+Opositores    & -                 & -            	& -      	\\ \hline
+Usuario final & Jugadores, entrenadores e instituciones deportivas & - & Usuarios del sistema de entrenamiento \\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Es deseable listar a continuación las principales características de cada interesado.
- 
-Por ejemplo:
 \begin{itemize}
-	\item Orientador: la Dra. Ing. María Gómez es experta en la temática y va a ayudar con la definición de los requerimientos y el desarrollo del firmware del embebido.
-	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
+	\item Cliente: el Corrientes Tenis Club se considera el principal adoptante institucional del prototipo y un ámbito natural para realizar validaciones funcionales y evaluar el interés de uso en contexto real.
+	\item Responsable: \authorname\ es el responsable de la planificación, desarrollo, integración y documentación del proyecto en el marco del Trabajo Final de la Maestría.
+	\item Colaboradores: los jugadores de tenis que participen en las pruebas aportarán retroalimentación sobre calidad de lanzamiento, utilidad práctica, ergonomía de uso y desempeño general del sistema.
+	\item Orientador: \supname\ aportará experiencia técnica y acompañamiento en las decisiones de arquitectura, integración de hardware y software, y definición de criterios de validación.
+	\item Usuario final: los usuarios finales previstos son jugadores, entrenadores e instituciones deportivas que valoren autonomía de entrenamiento, portabilidad del equipo y repetibilidad en los ejercicios.
 \end{itemize}
 
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
-
+\newpage
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+Desarrollar una máquina lanzapelotas de tenis portátil y autónoma que permita realizar entrenamientos de peloteo de manera reproducible, segura y flexible, mejorando una versión previa mediante un rediseño mecánico, electrónico y de control basado en sistemas embebidos. Se busca obtener un prototipo funcional más liviano, robusto y mantenible, con mejor autonomía energética, mayor precisión en sus movimientos y capacidad de evolución tecnológica, de modo de disponer de una plataforma válida tanto para la práctica deportiva como para futuras extensiones funcionales.
 
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que continúe con la idea de la frase ``el propósito de este proyecto es...'' (omitir la frase, ya que está en el título de la sección).
-\end{consigna}
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
-
-Se refiere al trabajo que se va a hacer para entregar el producto o resultado especificado. 
-
-Explicitar todo lo quede comprendido dentro del alcance del proyecto. Por ejemplo:
-
 El proyecto incluye:
 \begin{itemize}
-	\item Ítem 1.
-	\item Ítem 2.
-		\begin{itemize}
-		\item Subítem 1.
-		\item Subítem 2.
-		\item ...
-		\end{itemize}
-	\item ...
-	
+	\item El rediseño y construcción de un prototipo mecánico funcional de la máquina, sin buscar una optimización final completa.
+	\item El diseño e integración de piezas mecánicas impresas en 3D para soportes, acoples y mecanismos del sistema.
+	\item La selección y montaje del hardware electrónico necesario para el funcionamiento del prototipo.
+	\item El desarrollo del firmware para control de motores, lectura de sensores y coordinación general del equipo.
+	\item La implementación de una aplicación móvil simple por Bluetooth para configurar funciones básicas.
+	\item La incorporación de botones locales y del hardware de encendido, apagado y selección de modos.
+	\item La integración de sensores y finales de carrera para detectar estados y delimitar recorridos mecánicos.
+	\item La implementación del mecanismo de alimentación de pelotas y de los ejes de orientación.
+	\item La validación funcional del sistema mediante pruebas en campo.
+	\item La obtención de retroalimentación de jugadores durante las pruebas.
+	\item La documentación técnica del desarrollo y de las decisiones principales de diseño.
+	\item La definición de una base tecnológica escalable para futuras mejoras.
 \end{itemize}
 
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+El presente proyecto no incluye:
+\begin{itemize}
+	\item El diseño, desarrollo o fabricación del sistema de baterías.
+	\item El diseño o desarrollo del cargador de baterías.
+\end{itemize}
 
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-``Para el desarrollo del presente proyecto se supone que: ...''
+Para el desarrollo del presente proyecto se supone que:
 
 \begin{itemize}
-	\item Supuesto 1.
-	\item Supuesto 2.
-	\item ...
+	\item Los sensores y finales de carrera seleccionados permitirán detectar posiciones y estados del sistema con repetibilidad suficiente.
+	\item Los motores y mecanismos de transmisión elegidos permitirán alcanzar velocidades y movimientos acordes al funcionamiento básico esperado.
+	\item Se dispondrá de acceso a impresora 3D y materiales para fabricar e iterar las piezas del prototipo.
+	\item Los componentes críticos, como motores, drivers, sensores y electrónica de control, podrán conseguirse sin faltantes prolongados.
+	\item Los costos de componentes e insumos se mantendrán dentro de un rango manejable para construir el prototipo.
+	\item La integración entre hardware, firmware, sensores y aplicación Bluetooth será técnicamente factible.
+	\item El conjunto mecánico y electrónico seleccionado alcanzará un nivel de funcionamiento básico suficiente para validar el prototipo.
 \end{itemize}
-
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{6. Product Backlog}
 \label{sec:backlog}
