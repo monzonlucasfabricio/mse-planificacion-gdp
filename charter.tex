@@ -1,11 +1,11 @@
-\documentclass[
+﻿\documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
 %codirector, % Uncomment to add a codirector to the title page
 ]{charter} 
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Tenis Trainer} 
+\titulo{Desarrollo de un prototipo funcional de máquina lanzapelotas para entrenamiento técnico en tenis} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Maestría en Sistemas Embebidos}
@@ -25,8 +25,8 @@
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Corrientes Tenis Club}
+\empresaCliente{Corrientes Tenis Club}
  
 \fechaINICIO{3 de marzo de 2026}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlan{21 de abril de 2026} 	%Fecha de final de cursada de GdP
@@ -106,13 +106,13 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-El proyecto \textit{Tenis Trainer} consiste en el rediseño y desarrollo de un prototipo funcional de máquina lanzapelotas para entrenamiento deportivo, concebida como un sistema embebido portátil y autónomo. La solución busca asistir al jugador en ejercicios de peloteo mediante secuencias programadas de lanzamiento, reduciendo la dependencia de otro jugador o entrenador.
+El proyecto consiste en el rediseño y desarrollo de un prototipo funcional de máquina lanzapelotas para entrenamiento deportivo, concebida como un sistema embebido portátil y autónomo. La solución busca asistir al jugador en ejercicios de peloteo mediante secuencias programadas de lanzamiento, reduciendo la dependencia de otro jugador o entrenador.
 
-El proyecto se desarrolla en el marco de la Maestría en Sistemas Embebidos y parte de una primera versión previamente construida, que permitió validar el concepto general. Sin embargo, esa versión presenta limitaciones de diseño mecánico y electrónico: volumen y peso elevados, uso de batería de gel, componentes mejorables, baja optimización del espacio interno y sensado insuficiente para referenciar con precisión los movimientos del sistema.
+La propuesta parte de una primera versión previamente construida, que permitió validar el concepto general. Sin embargo, esa versión presenta limitaciones de diseño mecánico y electrónico: volumen y peso elevados, uso de batería de gel, componentes mejorables, baja optimización del espacio interno y sensado insuficiente para referenciar con precisión los movimientos del sistema.
 
 Desde el punto de vista técnico, la propuesta apunta a consolidar una arquitectura de desarrollo propio en firmware, electrónica y mecánica, integrando microcontrolador, actuadores, sensores y una aplicación móvil para configuración y control. Entre las mejoras previstas se incluyen la migración a baterías de litio intercambiables, la reducción del tamaño de las ruedas, la reorganización del layout interno y la incorporación de sensores y finales de carrera para mejorar confiabilidad y repetibilidad.
 
-Frente a máquinas comerciales de entrenamiento, muchas veces costosas y poco flexibles para iteraciones locales, \textit{Tenis Trainer} busca ofrecer una plataforma portable, reproducible y escalable, con posibilidad de integración local de partes mecánicas y electrónicas. El problema que atiende es la necesidad de contar con un sistema de entrenamiento autónomo que permita repetir ejercicios de forma controlada y consistente. Los destinatarios de la solución son jugadores, entrenadores e instituciones deportivas.
+Frente a máquinas comerciales de entrenamiento, muchas veces costosas y poco flexibles para iteraciones locales, se busca ofrecer una plataforma portable, reproducible y escalable, con posibilidad de integración local de partes mecánicas y electrónicas. El problema que atiende es la necesidad de contar con un sistema de entrenamiento autónomo que permita repetir ejercicios de forma controlada y consistente. Los destinatarios de la solución son jugadores, entrenadores e instituciones deportivas.
 
 En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa una arquitectura compuesta por un microcontrolador ESP32, dos motores de corriente continua para el lanzamiento, subsistemas de posicionamiento en azimut y elevación mediante motores paso a paso, un mecanismo de alimentación de pelotas, sensores de estado y posición, y una aplicación móvil con conectividad Bluetooth. La lógica de control coordina estos bloques para ejecutar secuencias de entrenamiento programables y seguras.
 
@@ -137,21 +137,17 @@ La innovación del proyecto reside en la integración de una plataforma embebida
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   & -                 & -            	& -      	\\ \hline
 Cliente       & Corrientes Tenis Club & Corrientes Tenis Club	& Institución deportiva 	\\ \hline
-Impulsor      & -                 & -            	& -      	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
 Colaboradores & Jugadores de tenis participantes de las pruebas & - & Evaluadores de campo \\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
-Equipo        & -                 & -            	& -      	\\ \hline
-Opositores    & -                 & -            	& -      	\\ \hline
 Usuario final & Jugadores, entrenadores e instituciones deportivas & - & Usuarios del sistema de entrenamiento \\ \hline
 \end{tabularx}
 \end{table}
 
 \begin{itemize}
 	\item Cliente: el Corrientes Tenis Club se considera el principal adoptante institucional del prototipo y un ámbito natural para realizar validaciones funcionales y evaluar el interés de uso en contexto real.
-	\item Responsable: \authorname\ es el responsable de la planificación, desarrollo, integración y documentación del proyecto en el marco del Trabajo Final de la Maestría.
+	\item Responsable: \authorname\ es el responsable de la planificación, desarrollo, integración y documentación.
 	\item Colaboradores: los jugadores de tenis que participen en las pruebas aportarán retroalimentación sobre calidad de lanzamiento, utilidad práctica, ergonomía de uso y desempeño general del sistema.
 	\item Orientador: \supname\ aportará experiencia técnica y acompañamiento en las decisiones de arquitectura, integración de hardware y software, y definición de criterios de validación.
 	\item Usuario final: los usuarios finales previstos son jugadores, entrenadores e instituciones deportivas que valoren autonomía de entrenamiento, portabilidad del equipo y repetibilidad en los ejercicios.
@@ -208,48 +204,37 @@ Para el desarrollo del presente proyecto se supone que:
 \section{6. Product Backlog}
 \label{sec:backlog}
 
-El Product Backlog debe organizarse en cuatro \textbf{\textit{\'{e}picas}} fundamentales del proyecto. Cada \'{e}pica debe contener al menos dos historias de usuario que describan funcionalidades clave.
+El Product Backlog se organiza en cuatro \textbf{\textit{\'{e}picas}} incrementales que reflejan valor para el usuario y para la validacion del prototipo.
 
-El Product Backlog debe permitir interpretar cómo será el proyecto y su funcionalidad. Se deben indicar claramente las prioridades entre las historias de usuario y si hay alguna opcional.
-
-Las historias de usuario deben ser breves, claras y medibles, expresando el rol, la necesidad y el propósito de cada funcionalidad. También deben tener una prioridad definida para facilitar la planificación de los sprints.
-
-Cada historia de usuario debe incluir una ponderación en \textit{Story Points}, un número entero que representa el tama\~no relativo de la historia. El criterio para calcular los Story Points debe indicarse explícitamente.
-
-Las historias deben seguir el formato: ``\textit{Como [rol], quiero [tal cosa] para [tal otra cosa]}''.
-
-Las \'{e}picas deben estructurarse de la siguiente forma:
+\textbf{Criterio para Story Points:} se utiliza escala Fibonacci (\{1, 2, 3, 5, 8, 13\}) y se estima cada historia por combinacion de cantidad de trabajo, complejidad tecnica y riesgo/incertidumbre.
 
 \begin{itemize}
-  \item \textbf{\'{E}pica 1}
+  \item \textbf{\'{E}pica 1 - Operacion segura y control base}
     \begin{itemize}
-      \item HU1
-      \item HU2
+      \item \textbf{HU1} (\textit{Prioridad: Alta, SP: 5}): Como jugador, quiero iniciar y detener la maquina desde controles fisicos y remotos para operar el equipo de forma segura durante el entrenamiento.
+      \item \textbf{HU2} (\textit{Prioridad: Alta, SP: 5}): Como usuario, quiero que la maquina detecte estados de falla y ejecute parada segura para evitar lanzamientos no deseados.
+      \item \textbf{HU3} (\textit{Prioridad: Media, SP: 3}): Como operador, quiero cambiar de modo y seleccionar programa de trabajo para adaptar el entrenamiento a distintos ejercicios.
     \end{itemize}
-  \item \textbf{\'{E}pica 2}
+  \item \textbf{\'{E}pica 2 - Lanzamiento reproducible}
     \begin{itemize}
-      \item HU3
-      \item HU4
+      \item \textbf{HU4} (\textit{Prioridad: Alta, SP: 8}): Como jugador, quiero posicionar altitud y azimut de lanzamiento para dirigir la pelota a zonas definidas de la cancha.
+      \item \textbf{HU5} (\textit{Prioridad: Alta, SP: 8}): Como jugador, quiero que el sistema de alimentacion detecte pelota disponible y dispare en secuencia para sostener una sesion continua.
+      \item \textbf{HU6} (\textit{Prioridad: Alta, SP: 5}): Como jugador, quiero regular la potencia de lanzamiento para entrenar a diferentes intensidades.
+      \item \textbf{HU7} (\textit{Prioridad: Media, SP: 8}): Como tecnico, quiero completar homing/calibracion de ejes y ajustes mecanicos para mejorar repetibilidad y robustez del prototipo.
     \end{itemize}
-  \item \textbf{\'{E}pica 3}
+  \item \textbf{\'{E}pica 3 - App movil multiplataforma para validacion}
     \begin{itemize}
-      \item HU5
-      \item HU6
+      \item \textbf{HU8} (\textit{Prioridad: Alta, SP: 5}): Como usuario, quiero conectar una app movil multiplataforma por Bluetooth para iniciar y detener la maquina sin depender solo de botones locales.
+      \item \textbf{HU9} (\textit{Prioridad: Alta, SP: 5}): Como usuario, quiero configurar parametros basicos (direccion, pausa y potencia) desde la app para ejecutar entrenamientos simples.
+      \item \textbf{HU10} (\textit{Prioridad: Media, SP: 3}): Como usuario, quiero visualizar estado minimo del sistema (conexion, modo y ejecucion) para confirmar que los comandos fueron aplicados.
+      \item \textbf{HU11} (\textit{Prioridad: Baja, SP: 2  }): Como usuario, quiero guardar una configuracion basica en la app para reutilizarla en la siguiente sesion.
     \end{itemize}
-  \item \textbf{\'{E}pica 4}
+  \item \textbf{\'{E}pica 4 - Pruebas y validacion integral}
     \begin{itemize}
-      \item HU7
-      \item HU8
+      \item \textbf{HU12} (\textit{Prioridad: Alta, SP: 8}): Como tesista, quiero ejecutar pruebas de banco y de campo para medir repetibilidad de lanzamiento, estabilidad operativa y comportamiento mecanico.
+      \item \textbf{HU13} (\textit{Prioridad: Alta, SP: 5}): Como tesista, quiero registrar resultados de prueba y retroalimentacion de jugadores para comparar iteraciones y priorizar mejoras.
+      \item \textbf{HU14} (\textit{Prioridad: Media, SP: 5}): Como tesista, quiero validar el desempeno de la app y la comunicacion con la maquina en condiciones reales para cerrar la validacion del prototipo.
     \end{itemize}
-\end{itemize}
-
-\textbf{Reglas para definir historias de usuario:}
-\begin{itemize}
-  \item Ser concisas y claras.
-  \item Expresarlas en términos cuantificables y medibles.
-  \item No dejar margen para interpretaciones ambiguas.
-  \item Indicar claramente su prioridad y si son opcionales.
-  \item Considerar regulaciones y normas vigentes.
 \end{itemize}
 
 \section{7. Criterios de aceptación de historias de usuario}
