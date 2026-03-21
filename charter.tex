@@ -247,96 +247,155 @@ Cada historia debe tener criterios medibles, específicos y verificables. Deben 
 Se estructuran de forma análoga a las \'{e}picas del backlog:
 
 \begin{itemize}
-  \item \textbf{\'{E}pica 1}
+  \item \textbf{\'{E}pica 1 - Operación segura y control base}
     \begin{itemize}
-      \item Criterios de aceptación HU1
-      \item Criterios de aceptación HU2
+      \item \textbf{HU1}
+      \begin{itemize}
+        \item La máquina debe pasar de estado de reposo a estado operativo con botón \textit{START} en menos de 3 s.
+        \item La máquina debe detener motores de lanzamiento y alimentación con botón \textit{STOP} en menos de 2 s.
+        \item Debe ser posible ejecutar las acciones de inicio y detención tanto desde controles físicos como desde comando remoto.
+      \end{itemize}
+      \item \textbf{HU2}
+      \begin{itemize}
+        \item Ante condición de falla detectada, la máquina debe pasar a estado \textit{FAULT} y detener el lanzamiento.
+        \item En estado de falla no debe habilitarse el envío de nuevas pelotas.
+        \item El sistema debe registrar por interfaz de diagnóstico el motivo de falla o evento equivalente para análisis posterior.
+      \end{itemize}
+      \item \textbf{HU3}
+      \begin{itemize}
+        \item El cambio de modo debe poder realizarse con botón \textit{MODE} o comando remoto.
+        \item La selección de programa debe reflejarse en los parámetros activos (dirección, pausa, potencia) antes de iniciar el ciclo.
+        \item El modo/programa activo debe poder consultarse por interfaz de usuario o diagnóstico.
+      \end{itemize}
     \end{itemize}
-  \item \textbf{\'{E}pica 2}
+  \item \textbf{\'{E}pica 2 - Lanzamiento reproducible}
     \begin{itemize}
-      \item Criterios de aceptación HU3
-      \item Criterios de aceptación HU4
+      \item \textbf{HU4}
+      \begin{itemize}
+        \item El eje de altitud debe posicionarse al ángulo objetivo con error absoluto máximo de $\pm 5^\circ$.
+        \item El eje de azimut debe posicionarse al ángulo objetivo con error absoluto máximo de $\pm 5^\circ$.
+        \item La secuencia de posicionamiento debe finalizar antes de habilitar el disparo.
+      \end{itemize}
+      \item \textbf{HU5}
+      \begin{itemize}
+        \item El sistema debe verificar presencia de pelota en alimentador antes de cada envío.
+        \item El mecanismo alimentador debe completar un ciclo de alimentación por cada pelota enviada.
+        \item Si no hay pelota disponible durante el tiempo máximo definido, el sistema debe terminar el ciclo de manera segura.
+      \end{itemize}
+      \item \textbf{HU6}
+      \begin{itemize}
+        \item Debe ser posible configurar al menos tres niveles de potencia de lanzamiento.
+        \item El duty aplicado a cada motor DC debe coincidir con el setpoint configurado con tolerancia máxima de $\pm 5\%$.
+        \item El cambio de potencia debe impactar en la velocidad de salida de pelota de forma monotónica (nivel alto $>$ medio $>$ bajo).
+      \end{itemize}
+      \item \textbf{HU7}
+      \begin{itemize}
+        \item Los ejes de altitud, azimuth y alimentador deben ejecutar rutina de homing al encendido o al iniciar calibración.
+        \item El sistema debe marcar estado calibrado solo cuando se detecten correctamente los sensores de referencia.
+        \item Luego de calibrar, al menos 10 ciclos de posicionamiento consecutivos deben ejecutarse sin pérdida de referencia.
+      \end{itemize}
     \end{itemize}
-  \item \textbf{\'{E}pica 3}
+  \item \textbf{\'{E}pica 3 - App móvil multiplataforma para validación}
     \begin{itemize}
-      \item Criterios de aceptación HU5
-      \item Criterios de aceptación HU6
+      \item \textbf{HU8}
+      \begin{itemize}
+        \item La app debe conectarse por Bluetooth con la máquina en un tiempo menor a 10 s en condiciones normales.
+        \item La app debe permitir al menos los comandos \textit{START} y \textit{STOP}.
+        \item La desconexión de la app no debe dejar la máquina en estado inseguro.
+      \end{itemize}
+      \item \textbf{HU9}
+      \begin{itemize}
+        \item La app debe permitir configurar dirección, pausa entre envíos y potencia.
+        \item Los parámetros enviados desde app deben quedar reflejados en el programa activo antes de iniciar.
+        \item Al menos un entrenamiento completo debe poder ejecutarse usando solo parámetros configurados desde app.
+      \end{itemize}
+      \item \textbf{HU10}
+      \begin{itemize}
+        \item La app debe mostrar estado de conexión (conectado/desconectado).
+        \item La app debe mostrar modo o estado operativo actual de la máquina.
+        \item La app debe mostrar confirmación de recepción para cada comando crítico enviado.
+      \end{itemize}
+      \item \textbf{HU11}
+      \begin{itemize}
+        \item Debe poder guardarse al menos un perfil de entrenamiento básico en la app.
+        \item El perfil guardado debe poder recuperarse y aplicarse sin reingresar parámetros manualmente.
+        \item Los parámetros recuperados deben coincidir con los guardados previamente.
+      \end{itemize}
     \end{itemize}
-  \item \textbf{\'{E}pica 4}
+  \item \textbf{\'{E}pica 4 - Pruebas y validación integral}
     \begin{itemize}
-      \item Criterios de aceptación HU7
-      \item Criterios de aceptación HU8
+      \item \textbf{HU12}
+      \begin{itemize}
+        \item Debe definirse y ejecutarse un protocolo de pruebas de banco y campo con casos y métricas explícitas.
+        \item Deben completarse al menos 3 sesiones de prueba en campo bajo condiciones de uso representativas.
+        \item Deben medirse como mínimo repetibilidad de dirección de disparo, continuidad del alimentador y estabilidad operativa.
+      \end{itemize}
+      \item \textbf{HU13}
+      \begin{itemize}
+        \item Cada sesión de prueba debe generar un registro con fecha, configuración y resultados.
+        \item Debe relevarse feedback de al menos 3 usuarios de prueba (jugadores/entrenadores).
+        \item Debe existir un listado priorizado de mejoras derivado de evidencias técnicas y feedback de usuario.
+      \end{itemize}
+      \item \textbf{HU14}
+      \begin{itemize}
+        \item Debe verificarse operación de la app en al menos dos plataformas móviles.
+        \item Debe validarse que la app permite completar una sesión de entrenamiento sin reinicio del sistema.
+      \end{itemize}
     \end{itemize}
-\end{itemize}
-
-\textbf{Reglas para definir criterios de aceptación:}
-\begin{itemize}
-  \item Medibles y verificables.
-  \item Especificar cuándo una historia se considera completada.
-  \item Incluir condiciones específicas.
-  \item No ambiguos.
-  \item Probables de testear funcional o técnicamente.
-  \item Mínimo 3 criterios por HU.
 \end{itemize}
 
 \section{8. Fases de CRISP-DM}
-
-\begin{enumerate}
-  \item \textbf{Comprensión del negocio:} objetivo, valor agregado de IA, métricas de éxito.
-  \item \textbf{Comprensión de los datos:} tipo, origen, cantidad, calidad.
-  \item \textbf{Preparación de los datos:} características clave, transformaciones necesarias.
-  \item \textbf{Modelado:} tipo de problema, algoritmos posibles.
-  \item \textbf{Evaluación del modelo:} métricas de rendimiento.
-  \item \textbf{Despliegue del modelo (opcional):} tipo de despliegue y herramientas.
-\end{enumerate}
+No aplica.
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
-
-A partir de cada Historia de Usuario (HU) definida en la sección 6, descomponer el trabajo en tareas técnicas concretas, medibles y acotadas en el tiempo.
-
-\begin{itemize}
-\item Seleccionar entre 2 y 3 tareas por cada historia de usuario.
-\item Cada tarea debe estar claramente formulada, ser técnica, accionable y con una estimación horaria entre 2 y 8 horas.
-\item Evitar tareas genéricas (como ''desarrollar funcionalidad´´) o demasiado amplias.
-\item Si una tarea supera las 8 horas, debe dividirse en subtareas.
-\item Indicar la prioridad relativa de cada tarea (Alta, Media o Baja).
-\end{itemize}
-
 \begin{table}[htpb]
 \centering
 \begin{tabularx}{\linewidth}{@{}|X|X|c|c|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0}
 Historia de usuario & Tarea técnica & Estimación & Prioridad \\ \hline
-HU1 & Tarea 1 HU1 & 6 h & Alta \\ \hline
-HU1 & Tarea 2 HU1 & 8 h & Alta \\ \hline
-HU2 & Tarea 1 HU2 & 5 h & Media \\ \hline
-HU2 & Tarea 2 HU2 & 6 h & Alta \\ \hline
-... & ... & ... & ... \\ \hline
+HU1 & Implementar lógica START/STOP con antirrebote y transiciones seguras de estado & 6 h & Alta \\ \hline
+HU1 & Integrar comando remoto START/STOP y verificar paridad con controles físicos & 6 h & Alta \\ \hline
+HU2 & Implementar gestión de falla con bloqueo de lanzamiento y alimentador en máquina de estados & 6 h & Alta \\ \hline
+HU2 & Diseñar prueba de inyección de falla y verificar parada segura en menos de 2 s & 5 h & Alta \\ \hline
+HU3 & Implementar cambio de modo y selección de programa desde botón MODE & 6 h & Media \\ \hline
+HU3 & Persistir y recuperar programa activo desde memoria no volátil (NVS/flash) & 6 h & Media \\ \hline
+HU4 & Calibrar relación pasos-grados para altitud y azimut con límites mecánicos reales & 8 h & Alta \\ \hline
+HU4 & Implementar validación de setpoints angulares y secuencia de posicionamiento previa al disparo & 5 h & Alta \\ \hline
+HU5 & Integrar lectura de sensores de alimentador (presencia/posición) en la lógica de envío de pelota & 6 h & Alta \\ \hline
+HU5 & Implementar timeout de espera de pelota y salida segura por ausencia de pelotas & 5 h & Alta \\ \hline
+HU6 & Definir tabla de niveles de potencia y mapearlos a duty PWM de motores DC & 4 h & Alta \\ \hline
+HU6 & Ejecutar ensayo comparativo de potencia (baja/media/alta) y ajustar parámetros & 8 h & Alta \\ \hline
+HU7 & Implementar homing robusto para altitud y alimentador con validación de sensores & 6 h & Alta \\ \hline
+HU7 & Diseñar e iterar ajuste mecánico (topes/soportes impresos en 3D) para mejorar repetibilidad & 8 h & Alta \\ \hline
 \end{tabularx}
 \end{table}
 
-\textbf{Criterios para estimar tiempos:}
-\begin{itemize}
-  \item Considerar la complejidad técnica, el nivel de incertidumbre y la experiencia previa.
-  \item Evitar subestimar el esfuerzo: estimar el tiempo realista que llevaría implementar, testear y documentar cada tarea.
-  \item Basar la estimación en la experiencia propia o en referencias de tareas similares.
-\end{itemize}
-
-\textbf{Sobre la prioridad:}
-\begin{itemize}
-  \item Asignar una prioridad relativa (Alta, Media o Baja) según la relevancia funcional de la tarea y su impacto en los entregables.
-  \item Priorizar tareas que estén vinculadas a criterios de aceptación de las HU o que sean necesarias para desbloquear otras.
-  \item Incluir tareas opcionales solo si están bien justificadas.
-\end{itemize}
-
-\textbf{Recomendaciones generales:}
-\begin{itemize}
-  \item -Enfocarse en tareas que surgen directamente de las HU planteadas.
-  \item No es necesario cubrir las 600 horas del proyecto en esta sección: el foco está en el desglose de funcionalidades clave.
-  \item Este trabajo será la base para organizar algunos de los sprints y elaborar el cronograma del proyecto, por lo que debe ser claro y realista.
-\end{itemize}
+\newpage
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|X|X|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Historia de usuario & Tarea técnica & Estimación & Prioridad \\ \hline
+HU8 & Implementar base de app multiplataforma (estructura, navegación mínima y permisos Bluetooth) & 8 h & Alta \\ \hline
+HU8 & Implementar conexión Bluetooth app-máquina con manejo de reconexión y desconexión segura & 8 h & Alta \\ \hline
+HU9 & Desarrollar interfaz de configuración de parámetros (dirección, pausa, potencia) en app & 8 h & Alta \\ \hline
+HU9 & Implementar envío y confirmación de parámetros desde app al firmware & 8 h & Alta \\ \hline
+HU10 & Implementar visualización en app de estado mínimo (conexión, modo y ejecución) & 8 h & Media \\ \hline
+HU10 & Implementar confirmación de comandos críticos (ACK/NACK) para acciones de control & 6 h & Alta \\ \hline
+HU11 & Implementar guardado local de un perfil básico de entrenamiento en app & 6 h & Baja \\ \hline
+HU11 & Implementar carga y aplicación de perfil guardado en nueva sesión & 4 h & Baja \\ \hline
+HU12 & Definir protocolo de pruebas de banco y campo con métricas de repetibilidad y estabilidad & 6 h & Alta \\ \hline
+HU12 & Ejecutar campaña de pruebas de banco y consolidar resultados técnicos & 8 h & Alta \\ \hline
+HU12 & Ejecutar al menos tres sesiones de prueba en campo con configuración controlada & 8 h & Alta \\ \hline
+HU13 & Diseñar plantilla única para registrar datos técnicos y feedback de usuarios de prueba & 6 h & Alta \\ \hline
+HU13 & Analizar resultados y construir lista priorizada de mejoras para siguiente iteración & 6 h & Media \\ \hline
+HU14 & Validar app en al menos dos plataformas móviles y documentar incidencias & 8 h & Media \\ \hline
+HU14 & Medir tasa de comandos exitosos y latencia en pruebas de campo app-máquina & 6 h & Alta \\ \hline
+\end{tabularx}
+\end{table}
 
 \section{10. Planificación de Sprints}
 
