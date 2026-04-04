@@ -1,4 +1,4 @@
-\documentclass[
+﻿\documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
 %codirector, % Uncomment to add a codirector to the title page
 ]{charter} 
@@ -131,6 +131,7 @@ La innovación del proyecto reside en la integración de una plataforma embebida
 \label{sec:interesados}
 
 \begin{table}[ht]
+\caption{Matriz de interesados del proyecto y rol principal de cada actor.}
 %\caption{Identificación de los interesados}
 %\label{tab:interesados}
 \begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
@@ -204,12 +205,12 @@ Para el desarrollo del presente proyecto se supone que:
 \section{6. Product Backlog}
 \label{sec:backlog}
 
-El Product Backlog se organiza en cuatro \textbf{\textit{\'{e}picas}} incrementales que reflejan valor para el usuario y para la validacion del prototipo.
+El Product Backlog se organiza en cuatro \textbf{\textit{\'{e}picas}} incrementales que reflejan valor para el usuario y para la validación del prototipo.
 
-\textbf{Criterio para Story Points:} se utiliza escala Fibonacci (\{1, 2, 3, 5, 8, 13\}) y se estima cada historia por combinacion de cantidad de trabajo, complejidad tecnica y riesgo/incertidumbre.
+\textbf{Criterio para Story Points:} se utiliza escala Fibonacci (\{1, 2, 3, 5, 8, 13\}) y se estima cada historia por combinación de cantidad de trabajo, complejidad técnica y riesgo/incertidumbre.
 
 \begin{itemize}
-  \item \textbf{\'{E}pica 1 - Operacion segura y control base}
+  \item \textbf{\'{E}pica 1 - Operación segura y control base}
     \begin{itemize}
       \item \textbf{HU1} (\textit{Prioridad: Alta, SP: 5}): Como jugador, quiero iniciar y detener la máquina desde controles físicos y remotos para operar el equipo de forma segura durante el entrenamiento.
       \item \textbf{HU2} (\textit{Prioridad: Alta, SP: 5}): Como usuario, quiero que la máquina detecte estados de falla y ejecute parada segura para evitar lanzamientos no deseados.
@@ -222,14 +223,14 @@ El Product Backlog se organiza en cuatro \textbf{\textit{\'{e}picas}} incrementa
       \item \textbf{HU6} (\textit{Prioridad: Alta, SP: 5}): Como jugador, quiero regular la potencia de lanzamiento para entrenar a diferentes intensidades.
       \item \textbf{HU7} (\textit{Prioridad: Media, SP: 8}): Como técnico, quiero completar homing/calibración de ejes y ajustes mecánicos para mejorar repetibilidad y robustez del prototipo.
     \end{itemize}
-  \item \textbf{\'{E}pica 3 - App movil multiplataforma para validacion}
+  \item \textbf{\'{E}pica 3 - App móvil multiplataforma para validación}
     \begin{itemize}
       \item \textbf{HU8} (\textit{Prioridad: Alta, SP: 5}): Como usuario, quiero conectar una app móvil multiplataforma por Bluetooth para iniciar y detener la máquina sin depender solo de botones locales.
       \item \textbf{HU9} (\textit{Prioridad: Alta, SP: 5}): Como usuario, quiero configurar parámetros básicos (dirección, pausa y potencia) desde la app para ejecutar entrenamientos simples.
-      \item \textbf{HU10} (\textit{Prioridad: Media, SP: 3}): Como usuario, quiero visualizar estado mínimo del sistema (conexión, modo y ejecucion) para confirmar que los comandos fueron aplicados.
-      \item \textbf{HU11} (\textit{Prioridad: Baja, SP: 2  }): Como usuario, quiero guardar una configuración básica en la app para reutilizarla en la siguiente sesión.
+      \item \textbf{HU10} (\textit{Prioridad: Media, SP: 3}): Como usuario, quiero visualizar el estado mínimo del sistema (conexión, modo y ejecución) para confirmar que los comandos fueron aplicados.
+      \item \textbf{HU11} (\textit{Prioridad: Baja, SP: 2, Opcional}): Como usuario, quiero guardar una configuración básica en la app para reutilizarla en la siguiente sesión.
     \end{itemize}
-  \item \textbf{\'{E}pica 4 - Pruebas y validacion integral}
+  \item \textbf{\'{E}pica 4 - Pruebas y validación integral}
     \begin{itemize}
       \item \textbf{HU12} (\textit{Prioridad: Alta, SP: 8}): Como tesista, quiero ejecutar pruebas de banco y de campo para medir repetibilidad de lanzamiento, estabilidad operativa y comportamiento mecánico.
       \item \textbf{HU13} (\textit{Prioridad: Alta, SP: 5}): Como tesista, quiero registrar resultados de prueba y retroalimentación de jugadores para comparar iteraciones y priorizar mejoras.
@@ -284,7 +285,7 @@ El Product Backlog se organiza en cuatro \textbf{\textit{\'{e}picas}} incrementa
       \end{itemize}
       \item \textbf{HU7}
       \begin{itemize}
-        \item Los ejes de altitud, azimuth y alimentador deben ejecutar la rutina de homing al encendido o al iniciar la calibración.
+        \item Los ejes de altitud, azimut y alimentador deben ejecutar la rutina de homing al encendido o al iniciar la calibración.
         \item El sistema debe marcar el estado calibrado solo cuando se detecten correctamente los sensores de referencia.
         \item Luego de realizada la calibración, se debe observar al menos 10 ciclos de posicionamiento consecutivos sin pérdida de los puntos de referencia.
       \end{itemize}
@@ -294,7 +295,7 @@ El Product Backlog se organiza en cuatro \textbf{\textit{\'{e}picas}} incrementa
       \item \textbf{HU8}
       \begin{itemize}
         \item La app debe conectarse por Bluetooth con la máquina en un tiempo menor a 10 s en condiciones normales.
-        \item La app debe permitir tener la mismas funcionalidad de START y STOP que tienen los botones físicos.
+        \item La app debe permitir las mismas funcionalidades de START y STOP que brindan los botones físicos.
         \item La desconexión de la app no debe dejar la máquina en estado inseguro.
       \end{itemize}
       \item \textbf{HU9}
@@ -322,7 +323,7 @@ El Product Backlog se organiza en cuatro \textbf{\textit{\'{e}picas}} incrementa
       \begin{itemize}
         \item Debe definirse y ejecutarse un protocolo de pruebas de banco y campo con casos y métricas explícitas.
         \item Deben completarse al menos 3 sesiones de prueba en campo bajo condiciones de uso representativas.
-        \item Deben medirse al menos: repetitibilidad en el disparo, continuidad del alimentador y estabilidad del sistema durante un período de tiempo determinado.
+        \item Deben medirse al menos: repetibilidad en el disparo, continuidad del alimentador y estabilidad del sistema durante un período de tiempo determinado.
       \end{itemize}
       \item \textbf{HU13}
       \begin{itemize}
@@ -338,6 +339,7 @@ El Product Backlog se organiza en cuatro \textbf{\textit{\'{e}picas}} incrementa
     \end{itemize}
 \end{itemize}
 
+\newpage
 \section{8. Fases de CRISP-DM}
 
 Si bien CRISP-DM es una metodología adecuada para proyectos de analítica y aprendizaje automático, en este trabajo no se adopta como marco principal porque el alcance del proyecto se centra en el desarrollo de un prototipo embebido de control y automatización, sin entrenamiento de modelos de IA en esta etapa.
@@ -355,8 +357,10 @@ Como línea futura, CRISP-DM podría considerarse en una segunda etapa del proye
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
+Las tablas siguientes presentan el desglose de tareas técnicas priorizadas a partir de las historias de usuario del backlog, con estimaciones acotadas para facilitar la planificación y el seguimiento.
 \begin{table}[htpb]
 \centering
+\caption{Desglose de tareas técnicas por historia de usuario (Parte 1).}
 \begin{tabularx}{\linewidth}{@{}|X|X|c|c|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0}
@@ -381,17 +385,18 @@ HU7 & Diseñar e iterar ajuste mecánico (topes/soportes impresos en 3D) para me
 \newpage
 \begin{table}[htpb]
 \centering
+\caption{Desglose de tareas técnicas por historia de usuario (Parte 2).}
 \begin{tabularx}{\linewidth}{@{}|X|X|c|c|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0}
 Historia de usuario & Tarea técnica & Estimación & Prioridad \\ \hline
-HU8 & Implementar base de app multiplataforma (estructura, navegación mínima y permisos Bluetooth) & 8 h & Alta \\ \hline
+HU8 & Implementar base de la app multiplataforma (estructura, navegación mínima y permisos Bluetooth) & 8 h & Alta \\ \hline
 HU8 & Implementar conexión Bluetooth app-máquina con manejo de reconexión y desconexión segura & 8 h & Alta \\ \hline
-HU9 & Desarrollar interfaz de configuración de parámetros (dirección, pausa, potencia) en app & 8 h & Alta \\ \hline
-HU9 & Implementar envío y confirmación de parámetros desde app al firmware & 8 h & Alta \\ \hline
-HU10 & Implementar visualización en app de estado mínimo (conexión, modo y ejecución) & 8 h & Media \\ \hline
+HU9 & Desarrollar interfaz de configuración de parámetros (dirección, pausa, potencia) en la app & 8 h & Alta \\ \hline
+HU9 & Implementar envío y confirmación de parámetros desde la app al firmware & 8 h & Alta \\ \hline
+HU10 & Implementar visualización en la app de estado mínimo (conexión, modo y ejecución) & 8 h & Media \\ \hline
 HU10 & Implementar confirmación de comandos críticos (ACK/NACK) para acciones de control & 6 h & Alta \\ \hline
-HU11 & Implementar guardado local de un perfil básico de entrenamiento en app & 6 h & Baja \\ \hline
+HU11 & Implementar guardado local de un perfil básico de entrenamiento en la app & 6 h & Baja \\ \hline
 HU11 & Implementar carga y aplicación de perfil guardado en nueva sesión & 4 h & Baja \\ \hline
 HU12 & Definir protocolo de pruebas de banco y campo con métricas de repetibilidad y estabilidad & 6 h & Alta \\ \hline
 HU12 & Ejecutar campaña de pruebas de banco y consolidar resultados técnicos & 8 h & Alta \\ \hline
@@ -404,101 +409,68 @@ HU14 & Medir tasa de comandos exitosos y latencia en pruebas de campo app-máqui
 \end{table}
 
 \section{10. Planificación de Sprints}
+La planificación de sprints se utiliza para ordenar el trabajo en incrementos de dos semanas, facilitar el seguimiento del avance y reducir riesgos de integración tardía entre firmware, mecánica y aplicación móvil.
 
-Organizar las tareas técnicas del proyecto en sprints de trabajo que permitan distribuir de forma equilibrada la carga horaria total, estimada en 600 horas.
+En esta planificación, los Story Points se usan como unidad relativa de esfuerzo (no representan tiempo absoluto). Para mantener trazabilidad con la carga horaria del proyecto, se adopta la referencia operativa \(1~SP \approx 2~h\), que se emplea solo como guía de estimación y balance entre sprints.
 
-\textbf{Consigna:}
-\begin{itemize}
-  \item Completar una tabla que relacione sprints con HU y tareas técnicas correspondientes.
-  \item Incluir estimación en horas para cada tarea.
-  \item Indicar responsable y porcentaje de avance estimado o completado.
-  \item Contemplar también tareas de planificación, documentación, redacción de memoria y preparación de defensa.
-\end{itemize}
-
-\textbf{Conceptos clave:}
-\begin{itemize}
-  \item Una \'{e}pica es una unidad funcional amplia; una historia de usuario es una funcionalidad concreta; un sprint es una unidad de tiempo donde se ejecutan tareas.
-  \item Las tareas son el nivel más desagregado: permiten estimar tiempos, asignar responsables y monitorear progreso.
-\end{itemize}
-
-\textbf{Duración sugerida:}
-\begin{itemize}
-  \item Para un proyecto de 600 h, se recomienda planificar entre 10 y 12 sprints de aproximadamente 2 semanas cada uno.
-  \item Asignar entre 45 y 50 horas efectivas por sprint a tareas técnicas.
-  \item Reservar 100 a 120 h para actividades no técnicas (planificación, escritura, reuniones, defensa).
-\end{itemize}
-
-\textbf{Importante:}
-\begin{itemize}
-  \item En proyectos individuales, el responsable suele ser el propio autor.
-  \item Aun así, desagregar tareas facilita el seguimiento y mejora continua.
-\end{itemize}
-
-\textbf{Conversión opcional de Story Points a horas:}
-\begin{itemize}
-  \item 1 SP \(\approx\) 2 h como referencia flexible.
-  \item Tener en cuenta aproximaciones tipo Fibonacci.
-\end{itemize}
+Los dos sprints de planificación (Sprint 0 y Sprint 1) se desarrollaron entre el 3 de marzo de 2026 y el 21 de abril de 2026, siendo esta última fecha el cierre de la etapa de planificación del proyecto.
 
 \begin{table}[htpb]
 \centering
-\caption{Formato sugerido}
-\begin{tabularx}{\linewidth}{@{}|l|l|X|c|l|c|@{}}
+\caption{Planificación de sprints del proyecto (Parte 1 de 2).}
+\begin{tabularx}{\linewidth}{@{}|>{\raggedright\arraybackslash}p{1.2cm}|>{\raggedright\arraybackslash}p{2.0cm}|X|>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.6cm}|>{\centering\arraybackslash}p{1.3cm}|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0}
 Sprint & HU o fase & Tarea & Horas / SP & Responsable & \% Completado \\ \hline
-Sprint 0 & Planificación & Definir alcance y cronograma & 10 h & Alumno & 100\% \\ \hline
-Sprint 0 & Planificación & Reunión con el tutor/cliente & 5 h & Alumno & 50\% \\ \hline
-Sprint 0 & Planificación & Ajuste de los entregables & 6 h & Alumno & 25\% \\ \hline
-Sprint 1 & HU1 & Tarea 1 HU1 & 6 h / 3 SP & Alumno & 0\% \\ \hline
-Sprint 1 & HU1 & Tarea 2 HU1 & 10 h / 5 SP & Alumno & 0\% \\ \hline
-Sprint 2 & HU2 & Tarea 1 HU2 & 7 h / 5 SP & Alumno & 0\% \\ \hline
-... & ... & ... & ... & ... & ... \\ \hline
-Sprint 5 & Escritura & Redacción memoria & 50 h / 34 SP & Alumno & 0\% \\ \hline
-Sprint 6 & Defensa & Preparación de la exposición & 20 h / 13 SP & Alumno & 0\% \\ \hline
+Sprint 0 & Planificación & Definición de alcance, backlog inicial, supuestos y cronograma base del proyecto & 40 h / 20 SP & Alumno & 100\% \\ \hline
+Sprint 1 & Planificación & Ajuste integral de planificación (HU, criterios, EDT, riesgos y tabla de sprints) & 40 h / 20 SP & Alumno & 70\% \\ \hline
+Sprint 2 & HU1-HU2 & Consolidar máquina de estados, START/STOP y parada segura ante fallas & 40 h / 20 SP & Alumno & 30\% \\ \hline
+Sprint 3 & HU3-HU4 & Selección de programa, posicionamiento inicial de altitud/azimut y validación angular base & 40 h / 20 SP & Alumno & 30\% \\ \hline
+Sprint 4 & HU5-HU6 & Integración de alimentador y control de potencia DC con ensayos de niveles de lanzamiento & 40 h / 20 SP & Alumno & 20\% \\ \hline
+Sprint 5 & HU7 & Homing/calibración de ejes y primera iteración de ajustes mecánicos impresos en 3D & 40 h / 20 SP & Alumno & 10\% \\ \hline
+Sprint 6 & HU7-HU12 & Segunda iteración mecánica y protocolo de pruebas de banco con métricas técnicas & 40 h / 20 SP & Alumno & 40\% \\ \hline
+Sprint 7 & HU8 & Implementación base de la app móvil multiplataforma y conexión Bluetooth con la máquina & 40 h / 20 SP & Alumno & 0\% \\ \hline
 \end{tabularx}
 \end{table}
 
-\textbf{Recomendaciones:}
-\begin{itemize}
-  \item Verificar que la carga horaria por sprint sea equilibrada.
-  \item Usar sprints de 1 a 3 semanas, acordes al cronograma general.
-  \item Actualizar el \% completado durante el seguimiento del proyecto.
-  \item Considerar un sprint final exclusivo para pruebas, revisión y ajustes antes de la defensa.
-\end{itemize}
+\newpage
+\begin{table}[htpb]
+\centering
+\caption{Planificación de sprints del proyecto (Parte 2 de 2).}
+\begin{tabularx}{\linewidth}{@{}|>{\raggedright\arraybackslash}p{1.2cm}|>{\raggedright\arraybackslash}p{2.0cm}|X|>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.6cm}|>{\centering\arraybackslash}p{1.3cm}|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Sprint & HU o fase & Tarea & Horas / SP & Responsable & \% Completado \\ \hline
+Sprint 8 & HU9 & Configuración de parámetros desde la app y envío confiable de comandos al firmware & 40 h / 20 SP & Alumno & 0\% \\ \hline
+Sprint 9 & HU10 & Visualización de estado mínimo en la app y confirmación de comandos críticos & 40 h / 20 SP & Alumno & 0\% \\ \hline
+Sprint 10 & HU11-HU14 & Perfil básico opcional en la app y validación inicial en dos plataformas móviles & 40 h / 20 SP & Alumno & 0\% \\ \hline
+Sprint 11 & HU12 & Pruebas de banco y campo sobre repetibilidad, estabilidad y continuidad de lanzamiento & 40 h / 20 SP & Alumno & 0\% \\ \hline
+Sprint 12 & HU13-HU14 & Registro de resultados, feedback de usuarios y cierre de validación app-máquina & 40 h / 20 SP & Alumno & 0\% \\ \hline
+Sprint 13 & Integración-Escritura & Corrección de desvíos, estabilización del prototipo y redacción técnica de resultados & 40 h / 20 SP & Alumno & 0\% \\ \hline
+Sprint 14 & Defensa & Preparación de presentación, ensayos de defensa y ajuste final de documentación & 40 h / 20 SP & Alumno & 0\% \\ \hline
+\end{tabularx}
+\end{table}
 
-
-\section{11. Diagrama de Gantt (sprints)}
+\section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-Visualizar en un diagrama de Gantt la planificación temporal del proyecto, tomando como base los sprints definidos en la sección anterior. Debe contemplar todas las horas del proyecto.
+Para la planificación temporal se elaboró un diagrama de Gantt en GanttProject, tomando como base el plan de sprints del punto 10 (Sprint 0 a Sprint 14). El cronograma contempla la secuencia completa del proyecto con dependencias entre sprints, dedicación estimada por sprint y los hitos principales de seguimiento.
 
-Consigna:
+En el diagrama se refleja además el estado real de avance: como parte de las tareas ya se encuentra en ejecución, algunos sprints presentan porcentaje de completado distinto de 0\%.
 
-\begin{itemize}
+En particular, el diagrama muestra que los sprints de planificación (Sprint 0 y Sprint 1) abarcan desde el 3 de marzo de 2026 hasta el 21 de abril de 2026.
 
-\item Elaborar un diagrama de Gantt que muestre la secuencia temporal de los sprints.
-
-\item Cada fila debe representar un sprint (con su número o nombre), y el eje horizontal debe indicar el tiempo (en semanas o fechas concretas).
-
-\item Las tareas técnicas derivadas de HU deben diferenciarse visualmente (por ejemplo, con un color distinto) de las tareas no técnicas (planificación, redacción, defensa).
-
-\item Incluir todas las tareas estimadas en cada sprint.
-\end{itemize}
-
-Recomendaciones para el Gantt:
-
-\begin{itemize}
-
-	\item Podés usar herramientas gratuitas como TeamGantt, ClickUp, GanttProject, [Google Sheets], [Trello + Planyway], entre otras.
-	\item Ordená los sprints de forma cronológica, comenzando con Sprint 0 (planificación) y finalizando con el sprint de defensa.
-	\item Asegurate de reflejar la duración realista de cada sprint según tu disponibilidad y el cronograma general del posgrado.
-	\item Incluí hitos importantes: reuniones, entregas parciales, defensa.
-\end{itemize}
+Se incorporan como hitos de entregas parciales las fechas de revisión: entrega parcial 1 (14 de marzo de 2026), entrega parcial 2 (21 de marzo de 2026), entrega parcial 3 (4 de abril de 2026) y entrega parcial 4 (11 de abril de 2026). También se incluye el hito de defensa final del trabajo.
 
 
-Incluir una imagen legible del diagrama de Gantt. Si es muy ancho, presentar primero la tabla y luego el gráfico de barras.
-
+\clearpage
+\begin{figure}[p]
+\centering 
+\includegraphics[angle=90,width=2\paperheight,height=1.15\paperwidth,keepaspectratio]{./Figuras/gantt_sprints.png}
+\caption{Diagrama de Gantt.}
+\label{fig:diagGantt}
+\end{figure}
+\clearpage
 
 
 \section{12. Gobernanza de datos}
