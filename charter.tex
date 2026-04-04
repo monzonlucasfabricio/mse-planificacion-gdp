@@ -61,7 +61,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 5 inclusive                 & {14} de {marzo} de 2026 \\ \hline
 2      & Se completa hasta el punto 9 inclusive                 & {21} de {marzo} de 2026 \\ \hline
-%		  Se puede agregar algo más \newline
+3		   & Se completa hasta el punto 12 inclusive                & {4} de {abril} de 2026 \\ \hline
 %		  En distintas líneas \newline
 %		  Así                                                    & {día} de {mes} de 202X \\ \hline
 %3      & Se completa hasta el punto 12 inclusive                & {día} de {mes} de 202X \\ \hline
@@ -225,7 +225,7 @@ El Product Backlog se organiza en cuatro \textbf{\textit{\'{e}picas}} incrementa
     \end{itemize}
   \item \textbf{\'{E}pica 3 - App móvil multiplataforma para validación}
     \begin{itemize}
-      \item \textbf{HU8} (\textit{Prioridad: Alta, SP: 5}): Como usuario, quiero conectar una app móvil multiplataforma por Bluetooth para iniciar y detener la máquina sin depender solo de botones locales.
+      \item \textbf{HU8} (\textit{Prioridad: Alta, SP: 5}): Como usuario, quiero conectar una app móvil multiplataforma por Bluetooth para iniciar y detener la máquina sin depender únicamente de botones locales.
       \item \textbf{HU9} (\textit{Prioridad: Alta, SP: 5}): Como usuario, quiero configurar parámetros básicos (dirección, pausa y potencia) desde la app para ejecutar entrenamientos simples.
       \item \textbf{HU10} (\textit{Prioridad: Media, SP: 3}): Como usuario, quiero visualizar el estado mínimo del sistema (conexión, modo y ejecución) para confirmar que los comandos fueron aplicados.
       \item \textbf{HU11} (\textit{Prioridad: Baja, SP: 2, Opcional}): Como usuario, quiero guardar una configuración básica en la app para reutilizarla en la siguiente sesión.
@@ -286,7 +286,7 @@ El Product Backlog se organiza en cuatro \textbf{\textit{\'{e}picas}} incrementa
       \item \textbf{HU7}
       \begin{itemize}
         \item Los ejes de altitud, azimut y alimentador deben ejecutar la rutina de homing al encendido o al iniciar la calibración.
-        \item El sistema debe marcar el estado calibrado solo cuando se detecten correctamente los sensores de referencia.
+        \item El sistema debe marcar el estado calibrado únicamente cuando se detecten correctamente los sensores de referencia.
         \item Luego de realizada la calibración, se debe observar al menos 10 ciclos de posicionamiento consecutivos sin pérdida de los puntos de referencia.
       \end{itemize}
     \end{itemize}
@@ -302,7 +302,7 @@ El Product Backlog se organiza en cuatro \textbf{\textit{\'{e}picas}} incrementa
       \begin{itemize}
         \item La app debe permitir configurar dirección, pausa entre envíos y potencia.
         \item Los parámetros enviados desde la app deben quedar reflejados en el programa activo antes de iniciar.
-        \item Al menos un entrenamiento completo debe poder ejecutarse usando solo parámetros configurados desde la app.
+        \item Al menos un entrenamiento completo debe poder ejecutarse usando únicamente parámetros configurados desde la app.
       \end{itemize}
       \item \textbf{HU10}
       \begin{itemize}
@@ -411,7 +411,7 @@ HU14 & Medir tasa de comandos exitosos y latencia en pruebas de campo app-máqui
 \section{10. Planificación de Sprints}
 La planificación de sprints se utiliza para ordenar el trabajo en incrementos de dos semanas, facilitar el seguimiento del avance y reducir riesgos de integración tardía entre firmware, mecánica y aplicación móvil.
 
-En esta planificación, los Story Points se usan como unidad relativa de esfuerzo (no representan tiempo absoluto). Para mantener trazabilidad con la carga horaria del proyecto, se adopta la referencia operativa \(1~SP \approx 2~h\), que se emplea solo como guía de estimación y balance entre sprints.
+En esta planificación, los Story Points se usan como unidad relativa de esfuerzo (no representan tiempo absoluto). Para mantener trazabilidad con la carga horaria del proyecto, se adopta la referencia operativa \(1~SP \approx 2~h\), que se emplea únicamente como guía de estimación y balance entre sprints.
 
 Los dos sprints de planificación (Sprint 0 y Sprint 1) se desarrollaron entre el 3 de marzo de 2026 y el 21 de abril de 2026, siendo esta última fecha el cierre de la etapa de planificación del proyecto.
 
@@ -476,41 +476,35 @@ Se incorporan como hitos de entregas parciales las fechas de revisión: entrega 
 \section{12. Gobernanza de datos}
 \label{sec:gobernanza}
 
-En esta sección se debe analizar de manera integral el marco normativo y ético asociado al uso de los datos y al desarrollo de soluciones basadas en inteligencia artificial.
-
-El análisis se divide en dos partes:
-
-\begin{itemize}
-  \item Cumplimiento normativo.
-  \item Ética en el uso de inteligencia artificial.
-\end{itemize}
-
 \subsection{Cumplimiento normativo}
-Este análisis es clave para garantizar el cumplimiento normativo y evitar conflictos legales durante el desarrollo y publicación del proyecto.
+En el alcance actual del proyecto no se procesan datos personales sensibles ni bases de datos de terceros. La solución se centra en control embebido, parámetros de operación de la máquina y resultados técnicos de pruebas (por ejemplo: modo, potencia, ángulos, estado de sensores y repetibilidad de lanzamiento).
 
-En esta subsección se debe identificar si los datos utilizados en el proyecto están sujetos a normativas de protección de datos y privacidad, y en qué condiciones pueden emplearse.
+Por lo tanto, en esta etapa no se identifica una obligación directa de cumplimiento de marcos como GDPR o HIPAA. De todos modos, se toma como referencia la Ley 25.326 de Protección de Datos Personales (Argentina) ante una futura incorporación de funcionalidades que registren datos de usuarios (por ejemplo, perfiles, historial individual o video).
 
-Aspectos a considerar:
+Respecto de herramientas, fuentes y trazabilidad de datos:
 
 \begin{itemize}
-  \item Determinar si los datos están regulados por normativas como el GDPR, la Ley 25.326 de Protección de Datos Personales (Argentina), la HIPAA u otras, según la jurisdicción o la temática del proyecto.
-  \item Aclarar si las fuentes de datos son propias, de acceso público o licenciadas. En este último caso, explicitar la licencia correspondiente y sus condiciones de uso. Realizar este mismo análisis para las herramientas y, en caso de corresponder, para los modelos preentrenados a emplear.
-  \item Analizar la viabilidad legal del proyecto, considerando los mecanismos necesarios para garantizar el cumplimiento normativo y la trazabilidad de los datos.
+  \item Firmware y app de desarrollo propio;
+  \item Librerías y frameworks utilizados bajo sus licencias correspondientes, a documentar en repositorio;
+  \item Datos de prueba generados en ensayos propios, sin cesión a terceros en la etapa actual.
 \end{itemize}
 
 \subsection{Ética en el uso de inteligencia artificial}
+En la etapa actual no se implementan modelos de inteligencia artificial para la toma de decisiones; por ello, los riesgos éticos asociados a sesgos algorítmicos son acotados.
 
-En esta subsección se debe reflexionar sobre los aspectos éticos vinculados al uso de datos y algoritmos de inteligencia artificial. Se espera una evaluación de la integridad del sistema y su impacto social.
+No obstante, el proyecto prevé una evolución posterior con visión por cámara y procesamiento on-edge. En esa etapa pueden aparecer riesgos de sesgo (por tipo de jugador, condiciones de luz y contexto de entrenamiento) y de uso indebido de imágenes.
 
-Aspectos a considerar:
+Como lineamientos preventivos para esa evolución se establece:
 
 \begin{itemize}
-	\item Identificar posibles sesgos en los datos o modelos (ideológicos, culturales, de género, geográficos, etc.) y analizar sus consecuencias (por ejemplo: discriminación, manipulación, pérdida de privacidad o desinformación).
-	\item Analizar los posibles riesgos en términos de impacto social del uso indebido de la solución a desarrollar.
-	\item En caso de corresponder, proponer medidas de mitigación y mecanismos de confianza (auditorías, documentación, trazabilidad, revisión humana, etc.).
-	\item Finalmente, elaborar una reflexión general sobre la ética del proyecto, considerando tanto la equidad y transparencia del sistema como su impacto potencial en la sociedad.
-
+	\item Minimización de datos capturados y almacenamiento de únicamente lo necesario;
+	\item Transparencia sobre qué datos se registran y con qué finalidad;
+	\item Trazabilidad de versiones de modelos y criterios de entrenamiento;
+	\item Validación con supervisión humana antes de automatizar decisiones críticas;
+	\item Posibilidad de desactivar funciones de captura/IA en entornos no controlados.
 \end{itemize}
+
+En síntesis, en su alcance actual el proyecto presenta bajo riesgo normativo y ético en materia de datos e inteligencia artificial, y deja definidos criterios de gobernanza para una expansión responsable en etapas futuras.
 
 
 \section{13. Gestión de riesgos}
