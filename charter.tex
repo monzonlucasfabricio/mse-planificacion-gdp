@@ -510,35 +510,49 @@ Finalmente, en su alcance actual el proyecto presenta bajo riesgo normativo y é
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
-\begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
-\end{itemize}   
+\textbf{a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias}
 
-Riesgo 2:
+\textbf{Riesgo 1:} Demoras o faltantes en la compra de componentes críticos (motores, drivers, sensores, ESP32, módulos Bluetooth).
 \begin{itemize}
-	\item Severidad (S): X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+	\item Severidad (S): 8.\\
+	Justificación: puede frenar la integración de firmware y ensayos, impactando hitos de sprints técnicos.
+	\item Probabilidad de ocurrencia (O): 6.\\
+	Justificación: el proyecto depende de proveedores externos y de disponibilidad variable de componentes electrónicos.
 \end{itemize}
 
-Riesgo 3:
+\textbf{Riesgo 2:} Desempeño mecánico insuficiente del sistema de lanzamiento/alimentación (atascos, vibración, baja repetibilidad).
 \begin{itemize}
-	\item Severidad (S):  X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
+	\item Severidad (S): 9.\\
+	Justificación: afecta directamente el objetivo principal del prototipo funcional y la validación en campo.
+	\item Probabilidad de ocurrencia (O): 5.\\
+	Justificación: existe incertidumbre asociada a iteraciones mecánicas con piezas impresas en 3D y ajustes de tolerancias.
 \end{itemize}
 
+\textbf{Riesgo 3:} Fallas de seguridad operativa (parada insegura, eventos no controlados, lógica de estado \textit{FAULT} incompleta).
+\begin{itemize}
+	\item Severidad (S): 10.\\
+	Justificación: puede generar situaciones peligrosas para usuarios y detener completamente las pruebas con personas.
+	\item Probabilidad de ocurrencia (O): 4.\\
+	Justificación: se mitiga por diseño, pero el riesgo existe durante la etapa de integración hardware/firmware.
+\end{itemize}
 
-b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+\textbf{Riesgo 4:} Inestabilidad de comunicación Bluetooth app-máquina (latencia, reconexión deficiente, pérdida de comandos).
+\begin{itemize}
+	\item Severidad (S): 7.\\
+	Justificación: compromete la usabilidad y una parte relevante del alcance funcional de control remoto.
+	\item Probabilidad de ocurrencia (O): 6.\\
+	Justificación: es un problema frecuente en entornos reales por interferencias y variabilidad entre dispositivos móviles.
+\end{itemize}
+
+\textbf{Riesgo 5:} Desvío del cronograma por subestimación de horas de integración y pruebas en campo.
+\begin{itemize}
+	\item Severidad (S): 8.\\
+	Justificación: puede impedir cerrar historias de usuario críticas y la documentación final en tiempo.
+	\item Probabilidad de ocurrencia (O): 7.\\
+	Justificación: es un proyecto interdisciplinario con alta dependencia entre mecánica, electrónica, firmware y app.
+\end{itemize}
+
+\textbf{b) Tabla de gestión de riesgos} (El RPN se calcula como RPN=SxO)
 
 \begin{table}[htpb]
 \centering
@@ -546,52 +560,67 @@ b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
+Demoras/faltantes de componentes críticos & 8 & 6 & 48 & 8 & 3 & 24 \\ \hline
+Desempeño mecánico insuficiente (repetibilidad/atascos) & 9 & 5 & 45 & 8 & 3 & 24 \\ \hline
+Fallas de seguridad operativa & 10 & 4 & 40 & 9 & 2 & 18 \\ \hline
+Inestabilidad Bluetooth app-máquina & 7 & 6 & 42 & 6 & 3 & 18 \\ \hline
+Desvío de cronograma por integración y pruebas & 8 & 7 & 56 & 7 & 4 & 28 \\ \hline
 \end{tabularx}%
 \end{table}
 
-Criterio adoptado: 
+Criterio adoptado:
 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a 30.
 
 Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
 
-c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
- 
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  \begin{itemize}
-	\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
-	\end{itemize}
+\textbf{c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido}
 
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+\textbf{Riesgo 1 (componentes):}
+\begin{itemize}
+	\item Plan de mitigación: compra anticipada en Sprint 0-1; listado de componentes equivalentes; stock mínimo de repuestos críticos.
+	\item Severidad (S*): 8. Justificación: el impacto sigue siendo alto si ocurre.
+	\item Probabilidad de ocurrencia (O*): 3. Justificación: disminuye por anticipación y proveedores alternativos.
+\end{itemize}
 
-\end{consigna}
+\textbf{Riesgo 2 (mecánica):}
+\begin{itemize}
+	\item Plan de mitigación: pruebas de banco tempranas, diseño modular e iteraciones cortas de piezas 3D, con criterios de aceptación por HU4/HU5/HU7.
+	\item Severidad (S*): 8. Justificación: una falla mecánica relevante mantiene impacto alto en la validación funcional.
+	\item Probabilidad de ocurrencia (O*): 3. Justificación: la probabilidad baja al validar e iterar desde etapas tempranas.
+\end{itemize}
 
+\textbf{Riesgo 3 (seguridad):}
+\begin{itemize}
+	\item Plan de mitigación: implementación y prueba explícita del estado \textit{FAULT}, parada segura menor a 2 s, checklist pre-prueba y ensayos iniciales sin usuarios.
+	\item Severidad (S*): 9. Justificación: por naturaleza, cualquier evento de seguridad conserva impacto muy alto.
+	\item Probabilidad de ocurrencia (O*): 2. Justificación: reduce significativamente con diseño de seguridad y pruebas sistemáticas.
+\end{itemize}
+
+\textbf{Riesgo 4 (Bluetooth):}
+\begin{itemize}
+	\item Plan de mitigación: protocolo ACK/NACK, timeout y reconexión automática, confirmación de comandos críticos y fallback a controles físicos.
+	\item Severidad (S*): 6. Justificación: se atenúa al garantizar operación local por botones ante fallas de enlace.
+	\item Probabilidad de ocurrencia (O*): 3. Justificación: mejora al robustecer el protocolo y validar en distintas plataformas.
+\end{itemize}
+
+\textbf{Riesgo 5 (cronograma):}
+\begin{itemize}
+	\item Plan de mitigación: reserva de buffer del 15\% por sprint, priorización de HU de alto valor y seguimiento semanal de desvíos con replanificación.
+	\item Severidad (S*): 7. Justificación: el impacto disminuye al contener atrasos tempranamente.
+	\item Probabilidad de ocurrencia (O*): 4. Justificación: persiste riesgo moderado por integración interdisciplinaria, pero con mejor control.
+\end{itemize}
+
+\newpage
 \section{14. Sprint Review}
 \label{sec:sprint_review}
 
-La revisión de sprint (\emph{Sprint Review}) es una práctica fundamental en metodologías ágiles. Consiste en revisar y evaluar lo que se ha completado al finalizar un sprint. En esta instancia, se presentan los avances y se verifica si las funcionalidades cumplen con los criterios de aceptación establecidos. También se identifican entregables parciales y se consideran ajustes si es necesario.
 
-Aunque el proyecto aún se encuentre en etapa de planificación, esta sección permite proyectar cómo se evaluarán las funcionalidades más importantes del backlog. Esta mirada anticipada favorece la planificación enfocada en valor y permite reflexionar sobre posibles obstáculos.
+Para la revisión proyectada se seleccionan cuatro historias de usuario prioritarias (HU1, HU5, HU8 y HU12), cubriendo operación segura, lanzamiento reproducible, app de control y validación integral.
 
-\textbf{Objetivo:} anticipar cómo se evaluará el avance del proyecto a medida que se desarrollen las funcionalidades, utilizando como base al menos cuatro historias de usuario del \emph{Product Backlog}.
-
-
-Seleccionar al menos 4 HU del Product Backlog. Para cada una, completar la siguiente tabla de revisión proyectada:
-
-\textbf{Formato sugerido:}
 \begin{table}[htpb]
-\renewcommand{\arraystretch}{1.5}
+\small
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{|>{\raggedright\arraybackslash}m{2.4cm}|
                 >{\raggedright\arraybackslash}m{2.3cm}|
                 >{\raggedright\arraybackslash}m{3cm}|
@@ -601,48 +630,28 @@ Seleccionar al menos 4 HU del Product Backlog. Para cada una, completar la sigui
 \rowcolor[HTML]{CCCCCC}
 \textbf{HU seleccionada} & \textbf{Tareas asociadas} & \textbf{Entregable esperado} & \textbf{¿Cómo sabrás que está cumplida?} & \textbf{Observaciones o riesgos} \\
 \hline
-                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
-\multirow{-2}{=}{HU1}    & Tarea 2 & \multirow{-2}{=}{Módulo funcional} & \multirow{-2}{=}{Cumple criterios de aceptación definidos} & \multirow{-2}{=}{Falta validar con el tutor} \\
+HU1 - Iniciar y detener la máquina de forma segura & Implementar lógica START/STOP con transiciones seguras e integrar comando remoto con paridad funcional & Módulo de control seguro operativo & La máquina inicia en menos de 3 s y se detiene en menos de 2 s desde botón y comando remoto & Riesgo de eventos inseguros durante integración; requiere pruebas controladas de falla \\
 \hline
-                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
-\multirow{-2}{=}{HU3}    & Tarea 2 & \multirow{-2}{=}{Reporte generado} & \multirow{-2}{=}{Exportación disponible y clara} & \multirow{-2}{=}{Requiere datos reales} \\
+HU5 - Alimentación y disparo en secuencia continua & Integrar lectura de sensores de alimentador y timeout con salida segura por ausencia de pelotas & Subsistema de alimentación validado & Cada envío verifica presencia de pelota y ante ausencia se finaliza el ciclo sin condición insegura & Riesgo de atascos mecánicos y falsos positivos de sensado \\
 \hline
-                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
-\multirow{-2}{=}{HU5}    & Tarea 2 & \multirow{-2}{=}{Panel de gestión} & \multirow{-2}{=}{Roles diferenciados operativos} & \multirow{-2}{=}{Riesgo en integración} \\
+HU8 - Conexión de app móvil para control remoto & Implementar conexión Bluetooth con reconexión y acciones START/STOP con confirmación de comando & App móvil conectada y funcional para control básico & La app conecta en menos de 10 s, ejecuta START/STOP y una desconexión no deja estado inseguro & Riesgo de latencia o pérdida de enlace según plataforma y entorno \\
 \hline
-                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
-\multirow{-2}{=}{HU7}    & Tarea 2 & \multirow{-2}{=}{Informe trimestral} & \multirow{-2}{=}{PDF con gráficos y evolución} & \multirow{-2}{=}{Puede faltar tiempo para ajustes} \\
+HU12 - Pruebas de banco y campo para validar el prototipo & Definir protocolo con métricas explícitas y ejecutar al menos 3 sesiones de prueba con consolidación de resultados & Informe de validación funcional y de desempeño & Existe evidencia de repetibilidad, continuidad del alimentador y estabilidad operativa en condiciones representativas & Riesgo de desvío de cronograma por disponibilidad de cancha y tiempo de ensayo \\
 \hline
 \end{tabular}
 \end{table}
 
+\newpage
 \section{15. Sprint Retrospective}    
 \label{sec:sprint_retro}
 
-La retrospectiva de sprint es una práctica orientada a la mejora continua. Al finalizar un sprint, el equipo (o el alumno, si trabaja de forma individual) reflexiona sobre lo que funcionó bien, lo que puede mejorarse y qué acciones concretas pueden implementarse para trabajar mejor en el futuro.
+La retrospectiva de sprint se usará para revisar, al cierre de cada sprint, qué funcionó bien, qué generó demoras y qué cambios concretos se aplicarán en el siguiente ciclo. En este proyecto, esta práctica es clave para reducir retrabajos entre mecánica, firmware y app móvil.
 
-Durante la cursada se propuso el uso de la \textbf{Estrella de la Retrospectiva}, que organiza la reflexión en torno a cinco ejes:
-
-\begin{itemize}
-\item  ¿Qué hacer más?
-\item  ¿Qué hacer menos?
-\item  ¿Qué mantener?
-\item  ¿Qué empezar a hacer?
-\item  ¿Qué dejar de hacer?
-\end{itemize}
-
-Aun en una etapa temprana, esta herramienta permite que el alumno planifique su forma de trabajar, identifique anticipadamente posibles dificultades y diseñe estrategias de organización personal.
-
-\textbf{Objetivo:} reflexionar sobre las condiciones iniciales del proyecto, identificando fortalezas, posibles dificultades y estrategias de mejora, incluso antes del inicio del desarrollo.
-
-
-Completar la siguiente tabla tomando como referencia los cinco ejes de la Estrella de la Retrospectiva (\emph{Starfish} o estrella de mar). Esta instancia te ayudará a definir buenas prácticas desde el inicio y prepararte para enfrentar el trabajo de forma organizada y flexible. Se deberá completar la tabla al menos para 3 sprints técnicos y 1 no técnico.
-
-\textbf{Formato sugerido:}
 
 \begin{table}[htpb]
-\renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|>{\raggedright\arraybackslash}p{1.8cm}|
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{1.9cm}|
                 >{\raggedright\arraybackslash}p{2.3cm}|
                 >{\raggedright\arraybackslash}p{2.3cm}|
                 >{\raggedright\arraybackslash}p{2.3cm}|
@@ -652,18 +661,15 @@ Completar la siguiente tabla tomando como referencia los cinco ejes de la Estrel
 \rowcolor[HTML]{CCCCCC} 
 \textbf{Sprint tipo y N°} & \textbf{¿Qué hacer más?} & \textbf{¿Qué hacer menos?} & \textbf{¿Qué mantener?} & \textbf{¿Qué empezar a hacer?} & \textbf{¿Qué dejar de hacer?} \\
 \hline
-Sprint técnico - 1 & Validaciones continuas con el alumno & Cambios sin versión registrada & Pruebas con datos simulados & Documentar cambios propuestos & Ajustes sin análisis de impacto \\
+Sprint técnico - 1 (control seguro) & Pruebas de transición de estados y fallas simuladas & Cambios sin prueba previa & Checklist de seguridad antes de cada ensayo & Registrar tiempos reales de START/STOP por iteración & Probar con usuarios sin validar primero en banco \\
 \hline
-Sprint técnico - 2 & Verificar configuraciones en múltiples escenarios & Modificar parámetros sin guardar historial & Perfiles reutilizables & Usar logs para configuración & Repetir pruebas manuales innecesarias \\
+Sprint técnico - 4 (lanzamiento y alimentación) & Ensayos cortos y repetidos de mecánica + firmware & Ajustes mecánicos sin hipótesis ni registro & Registro de parámetros por corrida de prueba & Definir criterios de aceptación por sesión de banco & Modificar varias variables en una misma prueba \\
 \hline
-Sprint técnico - 8 & Comparar correlaciones con casos previos & Cambiar parámetros sin justificar & Revisión cruzada de métricas & Anotar configuraciones usadas & Trabajar sin respaldo de datos \\
+Sprint técnico - 7 (app + Bluetooth) & Pruebas en distintos celulares y en entorno real & Depender solo de pruebas de laboratorio & ACK/NACK y timeout para comandos críticos & Medir latencia y tasa de comandos exitosos & Asumir estabilidad del enlace sin medirla \\
 \hline
-Sprint no técnico - 12 (por ej.: ``Defensa'') & Ensayos orales con feedback & Cambiar contenidos en la memoria & Material visual claro & Dividir la presentación por bloques & Agregar gráficos difíciles de explicar \\
+Sprint no técnico - 11 (memoria y defensa) & Redacción incremental y revisión semanal con tutor & Dejar escritura y correcciones para el final & Trazabilidad entre HU, pruebas y resultados & Usar plantilla única de evidencias (capturas, tablas y logs) & Cambiar estructura de capítulos cerca de la entrega \\
 \hline
 \end{tabular}
 \end{table}
-
-
-
 
 \end{document}
